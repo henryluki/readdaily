@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+{%include 'navbar.html'%}
+<div class="container">
+ <div class="row" style="padding-bottom:5%;">
+  <div class="col-lg-2"></div>
+    <div class="col-lg-8 col-sm-12 col-xs-12">
+     <h2 style='text-align:center;color:#428bca;'>{{article}}</h2>
+     <p style='border-bottom: 2px dashed #1f6692;'></p> 
+        {% for c in content%}
+       <h4><span style="color:#1f6692">{{forloop.counter}}</span>.&nbsp;{{c.title}}
+      <a class="hidden-xs"style='text-align:center;' href="{{c.link}}" target="_blank">link>>></a>
+        <button id='show-hide{{forloop.counter}}' class="btn-self">阅读</button></h4>
+        <div class='main-content row' id='content{{forloop.counter}}'>
+        <p style="color:#A36D6D">发布时间：{{c.pubdate}}</p>
+        <div>{{c.descr|safe}}{{c.content|safe}}</div>
+        </div>
+      {% endfor %} 
+      </div>
+      </div>
+{% include 'footer.html' %}
