@@ -6,4 +6,5 @@ readdaily
 - 模块：lxml beatifulsoup 
 - 数据库：MySQL
 - 定时抓取：cron.py
+---
 #####启动cron.py才能获取数据
