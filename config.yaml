@@ -1,0 +1,20 @@
+name: myreading
+version: 4
+libraries:
+- name: lxml
+  version: "2.3.4"
+- name: django
+  version: "1.5"
+cron:
+- url:/keepData/1/
+  schedule:"10 */6 * * *"
+- url:/keepData/2/
+  schedule:"0 12 * * *"
+- url:/keepData/3/
+  schedule:"0 6 */2 * *"
+- url:/keepData/4/
+  schedule:"0 7 */3 * *"
+- url:/keepData/5/
+  schedule:"0 9 */7 * *"
+- url:/keepData/6/
+  schedule:"0 8 */2 * *"
