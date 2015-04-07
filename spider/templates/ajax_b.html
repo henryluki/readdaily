@@ -1,50 +1,25 @@
 {% include 'header.html' %}
 <div class="container">
  <div class="row" style="padding-bottom:5%;">
-  <div class="col-lg-1"></div>
+  <div class="col-lg-2"></div>
     <div class="col-lg-7 col-sm-12 col-xs-12">
     <div class="text-center panel">
      <h2 style='color:#428bca;'>{{article}}</h2>
      </div>
       {% for c in content%}
-      <div class="panel panel-body">
-      <p style="color:#A36D6D">发布时间：{{c.pubdate}}<span><a href="{{c.link}}" style="float:right;color:#A36D6D" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>查看原文</a></span></p>
-       <h4 style="color:#1f6692">{{c.title}}</h4>
+      <div class="panel panel-info panel-body" data-href="{{c.link}}">
+      <div style="margin-bottom:10px;">
+       <h4 style="padding:0"><a style="color:#1f6692">{{c.title}}</a></h4>
+       <small style="color:#A36D6D;">{{c.pubdate}}<span><a href="{{c.link}}" style="float:right;color:#A36D6D" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>查看原文</a></span></small>
+      </div>
         <div>{{c.descr|safe}}{{c.content|safe}}</div>
         </div>
       {% endfor %} 
        <div id="scrollText"></div>
       </div>
       </div>
+      </div>
 {% include 'footer.html' %}
-<script type="text/javascript">
-      var offset=0;
-      $(window).scroll(function(){
-        if(parseFloat($(window).scrollTop())+parseFloat($(window).height())>=$(document).height()-400) 
-        { 
-          var url=window.location.href;
-          url =url+'?offset='+offset;
-          if(offset<6){
-             $.getJSON(url, function(item){
-              if(item!=""){
-                $(item).each(function(){
-                 var html=""; 
-                 html+='<div class="panel panel-body">'; 
-                 html+='<p style="color:#A36D6D">发布时间:'+this.pubdate+'<span><a href="'+this.link+'" style="float:right;color:#A36D6D" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>查看原文</a></span></p>';
-                 html+='<h4 style="color:#1f6692">'+this.title+'</h4>';
-                 html+=' <div>'+this.descr+this.content+'</div>';
-                 html+='</div>';
-                 $("#scrollText").append($(html)); 
-              })
-              }
-               else{
-                var html='<div class="panel panel-title"><p class="text-center text-danger"><b>数据已全部加载！</b></p></div>';
-                $("#scrollText").append($(html));
-                offset=7;   
-              }
-          });
-          offset+=1;
-          }
-        } 
-      });
-</script>
+<script src="http://static-nicksite-cdn.b0.upaiyun.com/static/js/ajax_b_2.min.js"></script>
+  </body>
+</html>

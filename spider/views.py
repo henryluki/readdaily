@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.utils import simplejson
 import urllib2,re
 import datetime
+import random
 from lxml import etree
 from BeautifulSoup import BeautifulSoup
 import cron
@@ -15,8 +16,16 @@ def page_not_found(request):
 def page_error(request):
     return render_to_response('500.html')
 
+def about(request):
+	return render_to_response('about.html')
+
 def httpIndex(request):
-	return render_to_response('index.html')
+	arr=RssData().indexPage()
+	return render_to_response('index_new.html',{'arr':arr})
+
+def runTest(request):
+	arr=RssData().indexPage()
+	return render_to_response('test.html',{'arr':arr})
 
 def runKeepData(request,param):
 	'''
@@ -32,8 +41,30 @@ def readArticle(request,param):
 	'''
 	a_id=param
 	arr=RssData().readArticle(a_id)
+	if arr:
+		article=arr[0]['title']
+		return render_to_response('detail.html',{'content':arr,'article':article})
+	else:
+		return page_not_found(request)
+
+def readArticleXs(request,param):
+	'''
+	小屏幕阅读文章
+	'''
+	a_id=param
+	arr=RssData().readArticle(a_id)
 	article=arr[0]['title']
-	return render_to_response('detail.html',{'content':arr,'article':article})
+	return render_to_response('detail_xs.html',{'content':arr,'article':article})
+
+def readArticleRandom(request):
+	'''
+	随机阅读文章
+	'''
+	num=RssData().countNum()
+	a_id=random.randint(1,num)
+	arr=RssData().readArticle(a_id)
+	article=arr[0]['title']
+	return render_to_response('detail_rd.html',{'content':arr,'article':article})	
 
 def commonResponse(request,article,template):
 	'''
@@ -79,7 +110,17 @@ def http36kr(request):
 	36kr
 	'''
 	# url="http://www.36kr.com/feed/"
-	article="36氪 | 关注互联网创业"
+	article="36氪"
+	template='ajax_a.html'
+	answear=commonResponse(request,article,template)
+	return answear
+
+def httpPingwest(request):
+	'''
+	品玩
+	'''
+	# url="http://www.pingwest.com/feed/"
+	article="PingWest品玩"
 	template='ajax_a.html'
 	answear=commonResponse(request,article,template)
 	return answear
@@ -166,6 +207,16 @@ def httpMeiwen(request):
 	answear=commonResponse(request,article,template)
 	return answear
 
+def httpDoudaily(request):
+	'''
+	豆瓣一刻
+	'''
+	#url='http://yikerss.miantiao.me/rss'
+	article="豆瓣一刻"
+	template='ajax_a.html'
+	answear=commonResponse(request,article,template)
+	return answear
+	
 def httpYiyan(request):
 	article="译言精选-摘要"
 	template='ajax_a.html'
@@ -232,7 +283,7 @@ def httpFotofeel(request):
 	Fotofeel 私摄影
 	'''
 	# url='http://www.fotofeel.com/rss'
-	article="Fotofeel 私摄影 - 情绪·人像·生活"
+	article="私摄影 - 情绪·人像·生活"
 	template='ajax_a.html'
 	answear=commonResponse(request,article,template)
 	return answear

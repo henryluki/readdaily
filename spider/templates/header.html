@@ -2,18 +2,26 @@
 <html lang="zh-cn">
 　<head>
 　<meta name="content-type" content="text/html; charset=utf-8" />
+  <meta name="google-site-verification" content="FDqAc-Yenaom6EiwkZsOrOLuWa9TW5idjpU6_QxPmlE" />
+  <meta name="baidu-site-verification" content="EePsEXzCXt" />
   <meta name="baidu-site-verification" content="Ql4NO51VMV" />
+  <meta name="description" content="每日阅读-文艺者的阅读style" />
+  <meta name="keywords" content="互联网,段子,文章,摄影,电影-每日阅读 ">
   <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0,user-scalable=no">
   <meta name="author" content="nick (http://nicksite.me)">
-　 <title>每日阅读 {{article}}</title>
-  <link rel="shortcut icon" href="http://read.nicksite.me/static/img/favicon.png"> 
-  <link rel="stylesheet" href="http://read.nicksite.me/static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://read.nicksite.me/static/css/style.min.css">
+  {%if article%}
+　 <title>{{article}} | 每日阅读</title>
+  {%else%}
+   <title>每日阅读 | 文艺者的阅读style</title>
+  {%endif%}
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+  <link rel="stylesheet" href="http://static-nicksite-cdn.b0.upaiyun.com/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://static-nicksite-cdn.b0.upaiyun.com/static/css/style.min.css">
+
   <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-           <script type='text/javascript' src="http://read.nicksite.me/static/js/respond.min.js"></script>
+           <script type='text/javascript' src="http://static-nicksite-cdn.b0.upaiyun.com/static/js/respond.min.js"></script>
         <![endif]--> 
-        <style type="text/css">.brief-img img{max-width:40%;height:auto;float: right;padding-left: 5px}</style>
 　</head>
 <body>
 <nav class="navbar navbar-self navbar-fixed-top " role="navigation">
@@ -25,47 +33,63 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand title" href="/">每日阅读</a>
+       <a class="navbar-brand title" href="/" style="padding:0;padding-left:80px"><img src="http://static-nicksite-cdn.b0.upaiyun.com/static/img/logo.png"/></a>
     </div>
-    <div class="navbar-collapse collapse pull-right" role="navigation">
+    <div class="navbar-collapse collapse pull-left" role="navigation">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">互联网<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">互联网</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/36kr/" >36kr</a></li>
-             <li><a href="/huxiu/" >虎嗅网</a></li>
-            <li><a href="/guokr/">果壳网</a></li>
-             <li><a href="/geekpark/">极客公园</a></li>
-              <li><a href="/zdaily/">知乎日报</a></li>
-            <li><a href="/zhihu/" >知乎每日精选</a></li>        
+            <li><a href="/pingwest/" >品玩网</a></li>
+             <!-- <li><a href="/huxiu/" >虎嗅网</a></li> -->
+             <li><a href="/geekpark/">极客公园</a></li>   
+          </ul>
+        </li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">阅读</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/yige/" >一个-韩寒</a></li>
+            <li><a href="/doudaily/" >豆瓣一刻</a></li>
+            <li><a href="/meiwen/">美文日赏</a></li>  
+              <!-- <li><a href="/yiyan/">译言精选</a></li> -->
+            <!--<li><a href="/ndweekly/">南都周刊</a></li>-->
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">笑话<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">知乎</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/zdaily/">日报</a></li>
+            <li><a href="/zhihu/" >每日精选</a></li>  
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">笑话</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/qiubai/" >糗事百科</a></li>
             <li><a href="/waduanzi/" >挖段子网</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">豆瓣<b class="caret"></b></a>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">生活</a>
+          <ul class="dropdown-menu" role="menu">
+             <li><a href="/jiaren/" >佳人</a></li>
+             <li><a href="/guokr/">果壳网</a></li>
+            <li><a href="/xinli/" >壹心理</a></li>
+          </ul>
+        </li>
+       <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">豆瓣</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/Dmovie/" >豆瓣影评</a></li>
             <li><a href="/Dbook/" >豆瓣书评</a></li>
           </ul>
-        </li>
+        </li> -->
+       
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">阅读<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/yige/" >一个</a></li>
-            <li><a href="/meiwen/">美文日赏</a></li>
-            <li><a href="/ndweekly/">南都周刊</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">摄影<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">摄影</a>
           <ul class="dropdown-menu" role="menu">  
-           <li><a href="/qiyu/" >奇遇网</a></li>
+           <!-- <li><a href="/qiyu/" >奇遇网</a></li> -->
             <li><a href="/dcmagcn/" >影像视觉</a></li>
             <li><a href="/letsfilm/" >胶片的味道</a></li>
             <li><a href="/imgii/" >IMGII在线视觉</a></li>
@@ -73,50 +97,23 @@
           </ul>
         </li>
          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">电影<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">电影</a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/seemovie/" >看电影</a></li>
             <li><a href="/yp136/" >影评网</a></li>
+            <!-- <li><a href="/seemovie/" >看电影</a></li> -->
             <li><a href="/cinephi/" >Cinephilia迷影</a></li>  
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">生活<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu">
-             <li><a href="/jiaren/" >佳人</a></li>
-            <li><a href="/xinli/" >壹心理</a></li>
-             <li><a href="/yiyan/">译言精选</a></li>
-          </ul>
-        </li>
+        <li><a href="/random/" target="_blank">随机</a></li>
+        <li><a href="http://120.24.240.86/today" target="_blank"><small>今日</small>
+        <img src="/static/img/beta.png" style="position:absolute;top:16px;left:45px"></a></li>
       </ul>
     </div>
+    <div class="navbar-collapse collapse pull-right" role="navigation">
+    <ul class="nav navbar-nav">
+        </ul>
+      </div>
   </div>
 </nav>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">About</h4>
-      </div>
-      <div class="modal-body">
-        <h4><strong>“每日阅读”</strong>-一个使用python爬虫技术动态显示资讯的web应用。</h4>
-        <p>“每日阅读”这款应用已经上线了。</p>
-         <p>这款应用的目的是实现资讯的获取与阅读，资讯内容有简单介绍也有深度阅读。</p>
-        <p>互联网的资讯太多太杂，有时候不知道该阅读什么，有时候也找不到好的阅读源。</p>
-        <p>“每日阅读”的技术是python爬虫，考虑到原信息出处网站的版权，因此只爬和解析它们的rss源。</p>
-        <p>网上确实有很多rss阅读器，但是提供的内容太繁而杂，而且阅读体验也未必好。</p>
-        <p>我想做好阅读体验，因此设计了一个模板。</p>
-        <p>我也人工地对这些rss源做了筛选，只爬该爬的，但说到底是基于我自己的考虑。</p>
-        <p>我选了四大栏目，分别是：“互联网”、“豆瓣”、“阅读”、“图赏”。</p>
-        <p>每个栏目下精选几个rss源，它们有知乎的，豆瓣的，一个 的，leica中文杂志的等等。</p>
-        <p>总结起来就是文字、书籍、电影、问答、美图。</p>
-        <p>目前这些选择看起来是对我这种类型的人考虑，不知道大家喜不喜欢。</p>
-        <p>但是这些栏目和rss源以后不只这些，我会不断收集和增加。</p>
-        <p>关于界面，现在就只做了一个模板，我觉得用户体验还行。</p>
-         <p style="text-align:right"><img src="http://nicksite.me/public/img/people.jpg"class="img-circle" title="谢杨林" style="max-width:50px;"/></p>
-         <p style="text-align:right">2014年8月底</p>
-    </div>
-  </div>
-</div>
-</div>
+
+

@@ -10,23 +10,32 @@ urlpatterns = patterns('',
    
     #首页
     url(r'^$','spider.views.httpIndex',name='httpIndex'),
+    #关于
+    url(r'about/$','spider.views.about',name='about'),
+    #测试
+    url(r'test/$','spider.views.runTest',name='runTest'),
     #看文章
     url(r'article/(\d+)/$','spider.views.readArticle',name='readArticle'),
+    url(r'detail/(\d+)/$','spider.views.readArticleXs',name='readArticleXs'),
+    url(r'random/$','spider.views.readArticleRandom',name='readArticleRandom'),
     #定时存数据
+    url(r'cronjob/(\d+)/$','spider.saetaskqueue.cronjob',name='cronjob'),
     url(r'keepData/(\d+)/$','spider.views.runKeepData',name='runKeepData'),
     #互联网
-    url(r'zhihu/$','spider.views.httpZhihu',name='httpZhihu'),
     url(r'36kr/$','spider.views.http36kr',name='http36kr'),
+    url(r'pingwest/$','spider.views.httpPingwest',name='httpPingwest'),
     url(r'huxiu/$','spider.views.httpHuxiu',name='httpHuxiu'),
     url(r'geekpark/$','spider.views.httpGeekpark',name='httpGeekpark'),
+    #知乎
+    url(r'zhihu/$','spider.views.httpZhihu',name='httpZhihu'),
     url(r'zdaily/$','spider.views.httpZdaily',name='httpZdaily'),
-    url(r'guokr/$','spider.views.httpGuokr',name='httpGuokr'),
     #豆瓣
     url(r'Dmovie/$','spider.views.httpDmovie',name='httpDmovie'),
     url(r'Dbook/$','spider.views.httpDbook',name='httpDbook'),
     #阅读
     url(r'yige/$','spider.views.httpYige',name='httpYige'),
     url(r'meiwen/$','spider.views.httpMeiwen',name='httpMeiwen'),
+    url(r'doudaily/$','spider.views.httpDoudaily',name='httpDoudaily'),
     url(r'ndweekly/$','spider.views.httpNdweekly',name='httpNdweekly'),
     #摄影
     url(r'qiyu/$','spider.views.httpQiyu',name='httpQiyu'),
@@ -44,7 +53,8 @@ urlpatterns = patterns('',
     #生活
     url(r'xinli/$','spider.views.httpXinli',name='httpXinli'),
     url(r'jiaren/$','spider.views.httpJiaren',name='httpJiaren'),
-    url(r'yiyan/$','spider.views.httpYiyan',name='httpYiyan'),
+    url(r'yiyan/$','spider.views.httpYiyan',name='httpYiyan'), 
+    url(r'guokr/$','spider.views.httpGuokr',name='httpGuokr'),
     
     # url(r'^$', 'spider.views.home', name='home'),
     # url(r'^spider/', include('spider.foo.urls')),

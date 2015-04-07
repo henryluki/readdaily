@@ -57,7 +57,7 @@ def httpParser1(url):
 	common:title link description 
 	'''
 	content=httpRequest(url)#发送请求
-	parser=etree.XMLParser(strip_cdata=False)
+	parser=etree.XMLParser(encoding='utf-8',recover=True, strip_cdata=False)
 	root = etree.XML(content,parser)
 	descr=root.xpath(u"//description")
 	title=root.xpath(u"//title") 
@@ -67,8 +67,8 @@ def httpParser1(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t!=0 and t<=10:
-			num=11-t
+		if t!=0 and t<=7:
+			num=8-t
 			string=httpXpath(descr[num].text)
 			newtime=datetime.datetime.strptime(pubDate[num].text[:25],"%a, %d %b %Y %H:%M:%S")
 			newtime=newtime.strftime('%Y年%m月%d日 %H:%M:%S')
@@ -105,10 +105,10 @@ def httpParser2(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t>=2 and t<=9:
-			num=11-t
+		if t>=2 and t<=6:
+			num=8-t
 			string=httpXpath(descr[num].text)
-			newtime=datetime.datetime.strptime(pubDate[num].text[:25],"%a, %d %b %Y %H:%M:%S")
+			newtime=datetime.datetime.strptime(pubDate[num-2].text[:25],"%a, %d %b %Y %H:%M:%S")
 			newtime=newtime.strftime('%Y年%m月%d日 %H:%M:%S')
 			arr={}
 			arr['article']=article
@@ -178,8 +178,8 @@ def httpParser4(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t!=0 and t<=9:
-			num=10-t
+		if t!=0 and t<=6:
+			num=7-t
 			string=httpXpath(item[num-1].contents[0].replace('&amp;','&').replace( '&lt;','<').replace('&gt;','>').replace('&quot;','"'))
 			newtime=datetime.datetime.strptime(pubDate[num].text[:25],"%a, %d %b %Y %H:%M:%S")
 			newtime=newtime.strftime('%Y年%m月%d日 %H:%M:%S')
@@ -253,10 +253,10 @@ def httpParser6(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t>=2 and t<=10:
-			num=12-t
+		if t>=2 and t<=8:
+			num=10-t
 			string=httpXpath(item[num-2].contents[2])
-			newtime=datetime.datetime.strptime(pubDate[num-2].text[:19],"%Y-%m-%d %H:%M:%S")
+			newtime=datetime.datetime.strptime(pubDate[num-2].text[:25],"%a, %d %b %Y %H:%M:%S")
 			newtime=newtime.strftime('%Y年%m月%d日 %H:%M:%S')
 			arr={}
 			arr['article']=article
@@ -325,8 +325,8 @@ def httpParserGuokr(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t!=0 and t<=10:
-			num=11-t
+		if t!=0 and t<=6:
+			num=7-t
 			string=httpXpath(item[num-1].contents[0].replace('&amp;','&').replace( '&lt;','<').replace('&gt;','>').replace('&quot;','"'))
 			newtime=datetime.datetime.strptime(pubDate[num].contents[0][:10],"%Y-%m-%d")
 			newtime=newtime.strftime('%Y年%m月%d日')
@@ -381,9 +381,9 @@ def httpParserQiubai(url):
 			else:
 				RssData().keepData(arr)
 
-def httpParserNandou(url):
+def httpParserMeiwen(url):
 	'''
-	南都周刊：title link description 
+	美文日赏：title link description
 	'''
 	content=httpRequest(url)#发送请求
 	parser=etree.XMLParser(strip_cdata=False)
@@ -396,10 +396,10 @@ def httpParserNandou(url):
 	content=[]
 	counter=0
 	for t in range(len(title)):
-		if t!=0 and t<=10:
-			num=11-t
+		if t>=3 and t<=5:
+			num=8-t
 			string=httpXpath(descr[num].text)
-			newtime=datetime.datetime.strptime(pubDate[num].text,"%Y/%m/%d %H:%M:%S")
+			newtime=datetime.datetime.strptime(pubDate[num-2].text[:25],"%a, %d %b %Y %H:%M:%S")
 			newtime=newtime.strftime('%Y年%m月%d日 %H:%M:%S')
 			arr={}
 			arr['article']=article

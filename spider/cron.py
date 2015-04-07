@@ -11,34 +11,38 @@ def cronStart(c_id):
 		urls.append('http://www.zhihu.com/rss')
 		urls.append('http://www.waduanzi.com/feed')
 		urls.append('http://www.36kr.com/feed/')
-		for url in urls:
-			parser.httpParser1(url)
-		urls1=[]
-		urls1.append('http://www.huxiu.com/rss/1.xml')
-		urls1.append('http://www.huxiu.com/rss/4.xml')
-		urls1.append('http://www.huxiu.com/rss/6.xml')
-		for url1 in urls1:
-			parser.httpParser3(url1)
+		urls.append('http://yikerss.miantiao.me/rss')
+		map(parser.httpParser1,urls)
+		
+		# parser.httpParser3('http://www.huxiu.com/rss/4.xml')
+		# urls1=[]
+		# urls1.append('http://www.huxiu.com/rss/1.xml')
+		# urls1.append('http://www.huxiu.com/rss/4.xml')
+		# urls1.append('http://www.huxiu.com/rss/6.xml')
+		# for url in urls:
+		# 	parser.httpParser1(url)
 
 	elif c_id ==2:
 		#24小时
+		parser.httpParser1('http://feed.xinli001.com/')
 		parser.httpParserQiubai('http://www.qiushibaike.com/hot/rss')
 		parser.httpParserYige('http://onehd.herokuapp.com/')
-		parser.httpParserGuokr('http://www.guokr.com/rss/')
+		parser.httpParserMeiwen('http://meiwenrishang.com/rss')
+		parser.httpParser7('http://www.pingwest.com/feed/')
 		parser.httpParser6('http://www.geekpark.net/rss')
+		
+	elif c_id==3:
+		#2 days
+		# parser.httpParser7('http://letsfilm.org/feed')
+		parser.httpParserGuokr('http://www.guokr.com/rss/')
 		parser.httpParser5('http://jiaren.org/feed/')
-		parser.httpParser1('http://feed.xinli001.com/')
-
-	elif c_id ==3:
+		# parser.httpParser5('http://feed.feedsky.com/yeeyan-select')
+	
+	elif c_id ==4:
 		#3天
 		parser.httpParser7('http://www.yp136.com/feed')
-		
-		urls1=[]
-		urls1.append('http://meiwenrishang.com/rss')
-		urls1.append('http://www.fotofeel.com/rss')
-		for url1 in urls1:
-			parser.httpParser2(url1)
-		
+		parser.httpParser2('http://www.fotofeel.com/rss')
+		parser.httpParser4('http://cinephilia.net/feed')
 		# urls=[]
 		# urls.append('http://www.douban.com/feed/review/movie')
 		# urls.append('http://www.douban.com/feed/review/book')
@@ -46,24 +50,21 @@ def cronStart(c_id):
 		# for url in urls:
 			# parser.httpParser4(url)
 			
-	elif c_id ==4:
+	elif c_id ==5:
 		#7天
-		parser.httpParser1('http://feed.mtime.com/my/seemovie/feed.rss')
+		# parser.httpParser1('http://feed.mtime.com/my/seemovie/feed.rss')
 		# parser.httpParser2('http://www.qiyu.net/rss')
 		urls=[]
 		urls.append('http://www.dcmagcn.com/feed')
 		urls.append('http://www.imgii.com/feed')
-		for url in urls:
-			parser.httpParser7(url)
+		map(parser.httpParser7,url)
 
-	elif c_id==5:
-		#2 days
-		parser.httpParser7('http://letsfilm.org/feed')
-		parser.httpParser5('http://feed.feedsky.com/yeeyan-select')
-		parser.httpParser4('http://cinephilia.net/feed')
 
 	elif c_id==6:
-		#test
+		#especial
 		parser.httpParser7('http://letsfilm.org/feed')
-	else:
+
+	elif c_id==7:
+		#test
 		pass
+

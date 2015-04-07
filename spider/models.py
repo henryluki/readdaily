@@ -4,7 +4,6 @@ from lxml import etree
 import datetime
 
 class RssData:
-	""" keep data to mysql """
 
 	def __init__(self):
 		pass
@@ -19,6 +18,7 @@ class RssData:
 		content=arr['content']
 		a1=Article(article=article,title=title,link=link,pubdate=pubdate,brief=brief,descr=descr,content=content)
 		a1.save()
+		# a1, created = Article.objects.get_or_create(article=article,title=title,link=link,pubdate=pubdate,brief=brief,descr=descr,content=content)
 
 	def checkData(self,article,offset):
 		article=article
@@ -52,3 +52,19 @@ class RssData:
 		a_id=int(a_id)
 		arr=Article.objects.filter(id=a_id).values()
 		return arr
+
+	def countNum(self):
+		num=Article.objects.count()
+		return num
+
+	def indexPage(self):
+		#取出 互联网 笑话 生活 阅读 摄影 电影 最新的一条
+		arr=[]
+		plist=["36氪","豆瓣一刻","知乎日报","挖段子网","改变从这里开始 - 壹心理","胶片的味道 | 胶片的味道","Cinephilia迷影"]
+		for i in range(len(plist)):
+			arr.append(Article.objects.filter(article=plist[i]).order_by("-pubdate")[0:1])
+		return arr
+
+
+
+

@@ -24,6 +24,7 @@ class Scroll(models.Manager):
 		return data
 
 class Article_Scroll(models.Model):
+	#自定义sql语句
 	article=models.CharField(max_length=50)
 	title=models.CharField(max_length=256)
 	link=models.CharField(max_length=256)

@@ -1,14 +1,16 @@
 {% include 'header.html' %}
+<base target="_blank" />
 <div class="container">
  <div class="row" style="padding-bottom:5%;">
-  <div class="col-lg-1"></div>
+  <div class="col-lg-2"></div>
     <div class="col-lg-7 col-sm-12 col-xs-12" style="background-color:#fff">
     {% for c in content%}
-       <h5 style="color:#A36D6D"><b>{{c.article}}</b><span><a href="{{c.link}}" style="float:right;color:#A36D6D" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>查看原文</a></span></h5>
-       <h1 style="color:#1f6692">{{c.title}}</h1>
+       <h5 style="color:#A36D6D"><b>转自：{{c.article}}</b><span><a href="{{c.link}}" style="float:right;color:#A36D6D"><i class="glyphicon glyphicon-eye-open"></i>查看原文</a></span></h5>
+       <h2 style="color:#1f6692">{{c.title}}</h2>
         <div>{{c.descr|safe}}{{c.content|safe}}</div>
         </div>
       {% endfor %} 
+      </div>
       </div>
 <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?uid=1405995817902311&type=left&amp;move=0" charset="utf-8"></script>
 {% include 'footer.html' %}

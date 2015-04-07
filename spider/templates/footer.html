@@ -1,11 +1,38 @@
-  <button class="scroll-top hidden-xs" style="display:none"><i class="glyphicon glyphicon-chevron-up"></i></button>
-<div class="text-center" style="padding-bottom:20px;">
-<p><a href="http://read.nicksite.me/">每日阅读</a> &middot; &copy; 2014 &middot;&nbsp;<a class="hidden-xs hidden-sm"data-toggle="modal" data-target="#myModal" >关于</a></p>
-<p>网站内容来源于原网站rss，旨在分享手机客户端的电脑版，版权归原作者所有。</p>
+  <button class="scroll-top hidden-xs hidden-sm" style="display:none;font-size: 18px">
+  <i class="glyphicon glyphicon-chevron-up"></i></button>
+<div class="container">
+<div class="row">
+<div class="col-lg-offset-2 col-lg-7" style="margin-top:40px;padding:10px;border-top:1px dashed #ccc">
+<small>Copyright © 2014-2015 <a href="/">每日阅读</a> all rights reserved.</small>
+<div class="pull-right">
+<small><a href="/about/">关于</a> · <a href="http://nicksite.me">联系</a>
+</small></div><br>
+<small>声明：本网站数据来源于互联网，版权归原出处网站所有。</small>
+</div>
+</div>
+</div>
+<div class="hidden-xs">
+<div class="weixin-scan" style="display:none;position: fixed; top: 105px; right: 4%; border: 0;">
+	<small style="position:fixed;top:90px;right:6%;">微信公众平台:</small>
+	<img style="width: 149px !important; height: 149px !important;" src="http://static-nicksite-cdn.b0.upaiyun.com/static/img/scan.jpg">
+</div>
 </div>
 
-  <script src="http://read.nicksite.me/static/js/jquery.min.js"></script>
-  <script src="http://read.nicksite.me/static/js/bootstrap.min.js"></script>
-  <script src="http://read.nicksite.me/static/js/mystyle.min.js"></script>
-  </body>
-</html>
+  <script src="http://static-nicksite-cdn.b0.upaiyun.com/static/js/jquery.min.js"></script>
+  <script src="http://static-nicksite-cdn.b0.upaiyun.com/static/js/bootstrap.min.js"></script>
+  <script src="http://static-nicksite-cdn.b0.upaiyun.com/static/js/mystyle.min.js"></script>
+   <script src="http://static-nicksite-cdn.b0.upaiyun.com//static/js/headroom.min.js"></script>
+  <script src="http://static-nicksite-cdn.b0.upaiyun.com//static/js/jQuery.headroom.min.js"></script>
+<script type="text/javascript">
+   $(".navbar-fixed-top").headroom();
+   /* weixin-scan */
+   $(window).scroll(function(){
+    if(parseFloat($(window).scrollTop())>=200 && $(window).width()>768){
+          $('.weixin-scan').fadeIn();
+        }
+    else{
+          $('.weixin-scan').fadeOut();
+    }
+  });
+</script>
+
