@@ -2,12 +2,10 @@ readdaily
 ========
 <img src="http://readdaily.sinaapp.com/favicon.ico"/> 每日阅读
 
-------
-运行于新浪云SAE引擎
-demo ：http://readdaily.sinaapp.com
-线上成功案例：http://www.iyuedu.cc
+- 运行于新浪云SAE引擎
+- demo ：http://readdaily.sinaapp.com
+- 线上成功案例：http://www.iyuedu.cc
 
-------
 ####执行方法
 
 - ①  git clone 到本地
