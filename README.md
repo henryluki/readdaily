@@ -4,7 +4,7 @@ readdaily
 
 - 运行于新浪云SAE引擎
 - demo ：http://readdaily.sinaapp.com
-- 线上成功案例：http://www.iyuedu.cc
+- 线上成功案例：http://readdaily.cc
 
 ####执行方法
 
